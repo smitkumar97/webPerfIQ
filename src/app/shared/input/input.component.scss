@@ -1,0 +1,32 @@
+.custom-input {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-color);
+  display: flex;
+  flex-direction: row;
+}
+
+input {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid var(--input-border);
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
+}
+
+input:focus {
+  border-color: var(--input-hover);
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 3px;
+}

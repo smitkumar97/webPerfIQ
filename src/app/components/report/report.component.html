@@ -1,0 +1,135 @@
+<div class="dashboard-container">
+  <mat-card class="analyze-card">
+    <mat-card-content>
+      <form [formGroup]="reportForm">
+        <app-input
+          label="Enter Website URL"
+          placeholder="https://example.com"
+          formControlName="website"
+          [required]="true"
+          errorMessage="Please provide the link"></app-input>
+      </form>
+      <button class="analyze-btn" (click)="generateReport()"
+        [disabled]="loading">
+        Analyze
+      </button>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card *ngIf="reportData" class="report-card">
+    <mat-card-title>Analysis Report</mat-card-title>
+    <mat-card-content>
+      <div class="score-container">
+        <div class="score-cards">
+          <div class="score-card performance">
+            <div class="score">{{ reportData.performanceScore || 0 }}</div>
+            <div class="label">Performance</div>
+          </div>
+          <div class="score-card seo">
+            <div class="score">{{ reportData.seoScore || 0 }}</div>
+            <div class="label">SEO</div>
+          </div>
+          <div class="score-card accessibility">
+            <div class="score">{{ reportData.accessibilityScore || 0 }}</div>
+            <div class="label">Accessibility</div>
+          </div>
+          <div class="score-card best-practices">
+            <div class="score">{{ reportData.bestPracticesScore || 0 }}</div>
+            <div class="label">Best Practices</div>
+          </div>
+        </div>
+      </div>
+
+      <mat-accordion class="recommendations-accordion">
+
+        <!-- PERFORMANCE -->
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <h3>Performance Recommendations</h3>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="recommendation-content">
+            <app-recommendations [reportData]="reportData"></app-recommendations>
+          </div>
+        </mat-expansion-panel>
+
+        <!-- ACCESSIBILITY -->
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <h3>Accessibility Recommendations</h3>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="recommendation-content">
+            <app-recommendations [reportData]="reportData"></app-recommendations>
+          </div>
+        </mat-expansion-panel>
+
+        <!-- BEST PRACTICES -->
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <h3>Best Practices Recommendations</h3>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="recommendation-content">
+            <app-recommendations [reportData]="reportData"></app-recommendations>
+          </div>
+        </mat-expansion-panel>
+
+        <!-- SEO -->
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <h3>SEO Recommendations</h3>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="recommendation-content">
+            <app-recommendations [reportData]="reportData"></app-recommendations>
+          </div>
+        </mat-expansion-panel>
+
+      </mat-accordion>
+
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="history-card">
+    <mat-card-title><h4><strong>Report History</strong></h4></mat-card-title>
+    <mat-card-content>
+      <div class="table-wrapper">
+        <table
+          *ngIf="history && history.length"
+          class="table table-container"
+          cellspacing="0"
+          cellpadding="0">
+          <thead class="table-head">
+            <tr class="header-row">
+              <th>No</th>
+              <th>URL</th>
+              <th>Performance</th>
+              <th>Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody class="table-body">
+            <tr class="body-row" *ngFor="let item of history; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ item.url }}</td>
+              <td>{{ item.performanceScore }}</td>
+              <td>{{ item.createdAt | date: 'short' }}</td>
+              <td>
+                <button mat-icon-button (click)="viewReport(item)">
+                  <mat-icon>visibility</mat-icon>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<app-loader [isLoading]="loading" loadingText></app-loader>

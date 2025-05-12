@@ -1,0 +1,50 @@
+<div class="register-container">
+  <div class="register-card">
+    <h2>Register</h2>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+      <app-input
+        label="Full Name"
+        placeholder="Enter your full name"
+        formControlName="fullName"
+        [required]="true"
+        errorMessage="Name is required"
+      ></app-input>
+
+      <app-input
+        label="Email"
+        type="email"
+        placeholder="Enter your email"
+        formControlName="email"
+        [required]="true"
+        errorMessage="Enter a valid email"
+      ></app-input>
+
+      <app-input
+        label="Password"
+        type="password"
+        placeholder="Enter your password"
+        formControlName="password"
+        [required]="true"
+        errorMessage="Password must be at least 6 characters"
+      ></app-input>
+
+      <app-input
+        label="Confirm Password"
+        type="password"
+        placeholder="Re-enter your password"
+        formControlName="confirmPassword"
+        [required]="true"
+        errorMessage="Passwords must match"
+      ></app-input>
+
+      <button class="register-btn" type="submit" [disabled]="registerForm.invalid">
+        Register
+      </button>
+
+      <p class="login-link">
+        Already have an account? <a routerLink="/login">Login</a>
+      </p>
+    </form>
+  </div>
+</div>

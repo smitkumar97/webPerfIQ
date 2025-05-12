@@ -1,0 +1,250 @@
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  background: var(--bg-color);
+  transition: background 0.3s ease-in-out;
+}
+
+.analyze-card, .report-card, .history-card {
+  width: 80%;
+  max-width: 1200px;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  background: var(--card-bg);
+  transition: all 0.3s ease-in-out;
+}
+
+.history-card {
+  mat-card-content {
+    padding: 0;
+  }
+}
+
+h2, h3, h4 {
+  margin-bottom: 15px;
+  color: var(--text-color);
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.analyze-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--button-bg);
+  color: var(--bg-color);
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.analyze-btn:disabled {
+  background-color: var(--button-disable);
+  cursor: not-allowed;
+}
+
+.analyze-btn:hover:not(:disabled) {
+  background-color: var(--button-hover);
+}
+
+/* Score Cards */
+.score-cards {
+  display: flex;
+  gap: 15px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.score-card {
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+  min-width: 100px;
+  box-shadow: var(--card-shadow);
+  transition: all 0.3s ease-in-out;
+
+  .score {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--bg-color);
+  }
+
+  .label {
+    font-size: 0.9rem;
+    color: var(--bg-color);
+    opacity: 0.9;
+  }
+}
+
+.performance { background: var(--success-color); }
+.seo { background: var(--info-color); }
+.accessibility { background: var(--warning-color); }
+.best-practices { background: var(--purple-color); }
+
+/* Recommendations Accordion */
+.recommendations-accordion {
+  margin-top: 20px;
+
+  .mat-expansion-panel {
+    background: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+  }
+
+  .mat-expansion-panel-header {
+    padding: 0 16px;
+    height: auto !important;
+    min-height: 48px;
+  }
+
+  .mat-expansion-panel-header-title {
+    color: var(--text-color);
+  }
+
+  .recommendation-content {
+    padding: 10px;
+    color: var(--text-color);
+
+    ul {
+      padding-left: 20px;
+      color: var(--text-secondary);
+    }
+
+    li {
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+
+    strong {
+      color: var(--text-color);
+    }
+  }
+}
+
+/* Table Styles */
+.table-wrapper {
+  max-height: 315px;
+  min-height: 100px;
+  overflow: auto;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+
+    /* Custom scrollbar styling */
+    &::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: var(--card-bg);
+      border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--button-bg);
+      border-radius: 4px;
+      &:hover {
+        background: var(--button-hover);
+      }
+    }
+}
+
+.table-container {
+  width: 100%;
+  margin-top: 0;
+  border-collapse: collapse;
+}
+
+.header-row {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--card-bg);
+
+  th {
+    position: sticky;
+    top: 0;
+    background-color: var(--card-bg);
+    z-index: 20;
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 500;
+    border-bottom: 1px solid var(--border-color);
+  }
+}
+
+.body-row {
+  border-bottom: 1px solid var(--border-color);
+
+  td {
+    padding: 12px 16px;
+    color: var(--text-secondary);
+  }
+
+  &:hover {
+    background-color: var(--bg-color);
+  }
+}
+
+.dark-mode .body-row:hover {
+  background-color: var(--row-hover);
+}
+
+.mat-icon {
+  color: var(--button-bg);
+}
+
+/* Loading State */
+.loading-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+  background: var(--card-bg);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: var(--card-shadow);
+}
+
+.loading-card p {
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+mat-card-title {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .analyze-card, .report-card, .history-card {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .score-cards {
+    gap: 10px;
+  }
+
+  .score-card {
+    min-width: 80px;
+    padding: 10px;
+
+    .score {
+      font-size: 1.5rem;
+    }
+  }
+}

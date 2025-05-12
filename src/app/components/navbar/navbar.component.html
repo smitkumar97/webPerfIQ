@@ -1,0 +1,14 @@
+<mat-toolbar class="navbar" color="primary">
+  <span class="logo" appHighlight="yellow">🚀 Performance Analyzer </span>
+  <span class="spacer"></span>
+
+  <!-- Dark Mode Toggle -->
+  <button mat-icon-button (click)="toggleDarkMode()">
+    <mat-icon>{{ isDarkMode ? 'dark_mode' : 'light_mode' }}</mat-icon>
+  </button>
+
+  <!-- Conditional Display of Logout Button -->
+  <button mat-button *ngIf="isLoggedIn()" (click)="logout()" class="logout-btn">
+    <mat-icon>logout</mat-icon> Logout
+  </button>
+</mat-toolbar>

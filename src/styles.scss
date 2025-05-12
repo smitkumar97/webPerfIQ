@@ -1,1 +1,67 @@
-/* You can add global styles to this file, and also import other style files */
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+app-root {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+:root {
+  --bg-color: #f8f9fa; /* Soft, light background */
+  --card-bg: #ffffff; /* Pure white for cards */
+  --card-border: #e0e0e0; /* Subtle border for cards */
+  --primary-color: #6c5ce7; /* Vibrant purple for primary elements */
+  --text-color: #2d3436; /* Dark gray for text (high contrast) */
+  --text-secondary: #666666;
+  --button-bg: #5c6bc0;
+  --button-hover: #3949ab;
+  --button-disable: #b2bec3; /* Gray for disabled buttons */
+  --input-bg: #ffffff; /* White for input backgrounds */
+  --input-border: #dfe6e9; /* Light gray for input borders */
+  --input-hover: #74b9ff; /* Light blue for input hover */
+  --success-color: #4CAF50;
+  --info-color: #2196F3;
+  --warning-color: #FF9800;
+  --purple-color: #9C27B0;
+  --row-hover: rgba(255, 255, 255, 0.05);
+  --card-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; /* Soft shadow for cards */
+}
+
+/* Dark Mode Variables */
+.dark-mode {
+  --bg-color: #1a1a1a; /* Dark background */
+  --card-bg: #2d2d2d; /* Slightly lighter dark for cards */
+  --card-border: #444; /* Dark border for cards */
+  --primary-color: #bb86fc; /* Soft purple for primary elements */
+  --text-color: #f8f9fa; /* Light text for contrast */
+  --button-bg: #5c6bc0; /* Bright blue for buttons */
+  --button-hover: #3949ab; /* Lighter blue for hover effect */
+  --button-disable: #555555; /* Dark gray for disabled buttons */
+  --input-bg: #333; /* Dark input background */
+  --input-border: #555; /* Darker border for inputs */
+  --input-hover: #4da6ff; /* Light blue for input hover */
+  --card-shadow: rgba(255, 255, 255, 0.1) 0px 2px 8px 0px; /* Subtle shadow for cards */
+}
+
+/* Form Field Styling */
+mat-form-field {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+/* Improve spacing & layout */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
+}

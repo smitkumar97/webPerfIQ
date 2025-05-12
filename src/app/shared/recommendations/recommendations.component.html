@@ -1,0 +1,16 @@
+<h4>Key Issues: {{reportData?.recommendations?.Accessibility?.keyIssuesObserved ? '' : "NA"}}</h4>
+<ul *ngIf="reportData?.recommendations?.Accessibility?.keyIssuesObserved">
+  <li *ngFor="let issue of reportData?.recommendations?.Accessibility?.keyIssuesObserved">{{ issue }}
+  </li>
+</ul>
+
+<h4>Recommended Actions: {{reportData?.recommendations?.Accessibility?.recommendedActions ? "": "NA"}}</h4>
+<mat-list *ngIf="reportData?.recommendations?.Accessibility?.recommendedActions">
+  <mat-list-item *ngFor="let action of reportData?.recommendations?.Accessibility?.recommendedActions">
+    <div>
+      <strong>{{ action.action }}</strong><br />
+      <span><b>Impact:</b> {{ action.impact }}</span><br />
+      <span><b>Details:</b> {{ action.details }}</span>
+    </div>
+  </mat-list-item>
+</mat-list>

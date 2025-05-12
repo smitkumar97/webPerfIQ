@@ -1,0 +1,12 @@
+<div class="custom-input">
+  <label>{{ label }}</label>
+  <input
+    [type]="type"
+    [placeholder]="placeholder"
+    [formControl]="inputControl"
+    (blur)="onTouched()"
+  />
+  <p class="error" *ngIf="showError">
+    {{ errorMessage }}
+  </p>
+</div>

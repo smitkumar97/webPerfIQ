@@ -1,0 +1,31 @@
+<div class="login-container">
+  <mat-card class="login-card">
+    <h2>Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <app-input
+        label="Email"
+        type="email"
+        placeholder="Enter your email"
+        formControlName="email"
+        [required]="true"
+        errorMessage="Enter a valid email"></app-input>
+
+      <app-input
+        label="Password"
+        type="password"
+        placeholder="Enter your password"
+        formControlName="password"
+        [required]="true"
+        errorMessage="Password must be at least 6 characters"></app-input>
+
+      <button class="login-btn" type="submit" color="primary"
+        [disabled]="loginForm.invalid">
+        Login
+      </button>
+
+      <p class="register-link">
+        Don't have an account? <a routerLink="/register">Sign up</a>
+      </p>
+    </form>
+  </mat-card>
+</div>
