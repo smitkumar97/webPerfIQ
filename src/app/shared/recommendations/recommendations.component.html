@@ -1,16 +1,24 @@
-<h4>Key Issues: {{reportData?.recommendations?.Accessibility?.keyIssuesObserved ? '' : "NA"}}</h4>
-<ul *ngIf="reportData?.recommendations?.Accessibility?.keyIssuesObserved">
-  <li *ngFor="let issue of reportData?.recommendations?.Accessibility?.keyIssuesObserved">{{ issue }}
-  </li>
-</ul>
+<div class="conatiner">
+  <h4>Key issues: {{reportData?.keyIssuesObserved ? '' : "NA"}}</h4>
+  <ul *ngIf="reportData?.keyIssuesObserved" style="list-style-type:circle">
+    <li *ngFor="let issue of reportData?.keyIssuesObserved">{{ issue }}
+    </li>
+  </ul>
 
-<h4>Recommended Actions: {{reportData?.recommendations?.Accessibility?.recommendedActions ? "": "NA"}}</h4>
-<mat-list *ngIf="reportData?.recommendations?.Accessibility?.recommendedActions">
-  <mat-list-item *ngFor="let action of reportData?.recommendations?.Accessibility?.recommendedActions">
-    <div>
-      <strong>{{ action.action }}</strong><br />
-      <span><b>Impact:</b> {{ action.impact }}</span><br />
-      <span><b>Details:</b> {{ action.details }}</span>
-    </div>
-  </mat-list-item>
-</mat-list>
+  <h4>Recommended Actions: {{reportData?.recommendedActions ? "": "NA"}}</h4>
+  <mat-list *ngIf="reportData?.recommendedActions">
+    <mat-list-item *ngFor="let action of reportData?.recommendedActions; index as i">
+      <div class="action-list">
+        <span>
+          <h4>Action: {{i+1}}</h4> {{ action.action }}
+        </span><br />
+        <span>
+          <h4>Impact:</h4> {{ action.impact }}
+        </span><br />
+        <span>
+          <h4>Details:</h4> {{ action.details }}
+        </span>
+      </div>
+    </mat-list-item>
+  </mat-list>
+</div>

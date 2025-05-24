@@ -1,1 +1,23 @@
+.conatiner {
+  width: 100%;
+  height: auto;
+  overflow: auto;
+}
 
+.mdc-list-item.mdc-list-item--with-one-line {
+  height: auto !important;
+}
+
+span {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+.action-list {
+  border: 1px solid var(--input-border);
+  box-shadow: var(--card-shadow);
+  border-radius: 5px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
