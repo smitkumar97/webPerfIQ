@@ -14,6 +14,7 @@ export class LoginComponent {
   password = '';
   loginForm: FormGroup;
   hidePassword = true;
+  loading: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -28,8 +29,10 @@ export class LoginComponent {
 
   login() {
     if (this.loginForm.valid) {
+      this.loading = true;
       this.authService.login(this.loginForm.value).subscribe(
         (response) => {
+          this.loading = false;
           localStorage.setItem('token', response.token);
           this.router.navigate(['/dashboard']);
         },

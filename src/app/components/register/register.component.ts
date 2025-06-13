@@ -10,6 +10,8 @@ import { AuthService } from '../../services/auth.service';
   standalone: false
 })
 export class RegisterComponent {
+  loading: boolean = false;
+
   registerForm = new FormGroup({
     fullName: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -17,12 +19,16 @@ export class RegisterComponent {
     confirmPassword: new FormControl('', Validators.required),
   });
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) { }
 
   onRegister() {
     if (this.registerForm.valid) {
+      this.loading = true;
       this.authService.register(this.registerForm.value).subscribe(
-        () => this.router.navigate(['/login']),
+        (response) => {
+          this.loading = false;
+          this.router.navigate(['/login'])
+        },
         (error) => console.error('Registration failed', error)
       );
     } else {
