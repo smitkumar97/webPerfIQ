@@ -15,6 +15,7 @@ app-root {
   width: 100%;
 }
 
+
 :root {
   --bg-color: #f8f9fa; /* Soft, light background */
   --card-bg: #ffffff; /* Pure white for cards */
@@ -42,7 +43,7 @@ app-root {
   --card-bg: #2d2d2d; /* Slightly lighter dark for cards */
   --card-border: #444; /* Dark border for cards */
   --primary-color: #bb86fc; /* Soft purple for primary elements */
-  --text-color: #f8f9fa; /* Light text for contrast */
+  --text-color: #f8f9fafa; /* Light text for contrast */
   --button-bg: #5c6bc0; /* Bright blue for buttons */
   --button-hover: #3949ab; /* Lighter blue for hover effect */
   --button-disable: #555555; /* Dark gray for disabled buttons */
@@ -51,6 +52,129 @@ app-root {
   --input-hover: #4da6ff; /* Light blue for input hover */
   --card-shadow: rgba(255, 255, 255, 0.1) 0px 2px 8px 0px; /* Subtle shadow for cards */
 }
+
+// 🪵 2. Earthy Organic
+// :root {
+//   --bg-color: #fdfaf6;
+//   --card-bg: #ffffff;
+//   --card-border: #e8e6e1;
+//   --primary-color: #8d6e63; /* Earthy brown */
+//   --text-color: #3e3e3e;
+//   --text-secondary: #7b6f6f;
+//   --button-bg: #a1887f;
+//   --button-hover: #6d4c41;
+//   --button-disable: #d7ccc8;
+//   --input-bg: #fffaf6;
+//   --input-border: #dcd2cc;
+//   --input-hover: #bcaaa4;
+//   --success-color: #81c784;
+//   --info-color: #4fc3f7;
+//   --warning-color: #ffb74d;
+//   --purple-color: #ce93d8;
+//   --row-hover: rgba(0, 0, 0, 0.02);
+//   --card-shadow: rgba(0, 0, 0, 0.07) 0px 2px 6px;
+// }
+
+// .dark-mode {
+//   --bg-color: #1c1917;
+//   --card-bg: #2a2624;
+//   --card-border: #3e3a38;
+//   --primary-color: #d7ccc8;
+//   --text-color: #e6e2df;
+//   --button-bg: #a1887f;
+//   --button-hover: #6d4c41;
+//   --button-disable: #555;
+//   --input-bg: #2c2a28;
+//   --input-border: #555;
+//   --input-hover: #bcaaa4;
+//   --card-shadow: rgba(255, 255, 255, 0.05) 0px 2px 8px;
+// }
+
+// 3. Black and Yellow
+// :root {
+//   --bg-color: #ffffff;              /* Clean white background */
+//   --card-bg: #fefefe;               /* Slight off-white for cards */
+//   --card-border: #e0e0e0;           /* Light gray card border */
+//   --primary-color: #FFC300;         /* Warm golden yellow */
+//   --text-color: #1a1a1a;            /* Deep black text */
+//   --text-secondary: #555555;        /* Muted dark gray */
+//   --button-bg: #FFD700;             /* Bright yellow */
+//   --button-hover: #e6b800;          /* Rich mustard hover */
+//   --button-disable: #ccc;           /* Light gray for disabled */
+//   --input-bg: #ffffff;
+//   --input-border: #ccc;
+//   --input-hover: #FFD700;
+//   --success-color: #4CAF50;
+//   --info-color: #2196F3;
+//   --warning-color: #FF9800;
+//   --purple-color: #FFC300;
+//   --row-hover: rgba(255, 215, 0, 0.05);
+//   --card-shadow: rgba(0, 0, 0, 0.08) 0px 2px 8px;
+// }
+
+// .dark-mode {
+//   --bg-color: #0d0d0d;              /* Deep black background */
+//   --card-bg: #1a1a1a;               /* Dark gray for cards */
+//   --card-border: #2a2a2a;
+//   --primary-color: #FFD700;         /* Bright gold */
+//   --text-color: #f8f8f8;
+//   --text-secondary: #bfbfbf;
+//   --button-bg: #FFC300;
+//   --button-hover: #e6b800;
+//   --button-disable: #4d4d4d;
+//   --input-bg: #111111;
+//   --input-border: #333;
+//   --input-hover: #FFD700;
+//   --success-color: #66BB6A;
+//   --info-color: #29B6F6;
+//   --warning-color: #FFA000;
+//   --purple-color: #FFD700;
+//   --row-hover: rgba(255, 215, 0, 0.08);
+//   --card-shadow: rgba(255, 215, 0, 0.1) 0px 2px 8px;
+// }
+
+// 4. Black and Olive Green
+// :root {
+//   --bg-color: #ffffff;               /* Clean white background */
+//   --card-bg: #fefefe;                /* Slightly off-white cards */
+//   --card-border: #e0e0e0;
+//   --primary-color: #708238;          /* Classic olive green */
+//   --text-color: #1a1a1a;
+//   --text-secondary: #555555;
+//   --button-bg: #8A9A5B;              /* Muted olive button */
+//   --button-hover: #6e7c3f;           /* Deeper olive on hover */
+//   --button-disable: #cccccc;
+//   --input-bg: #ffffff;
+//   --input-border: #ccc;
+//   --input-hover: #8A9A5B;
+//   --success-color: #4CAF50;
+//   --info-color: #2196F3;
+//   --warning-color: #FF9800;
+//   --purple-color: #708238;           /* Olive as accent */
+//   --row-hover: rgba(138, 154, 91, 0.05);
+//   --card-shadow: rgba(0, 0, 0, 0.08) 0px 2px 8px;
+// }
+
+// .dark-mode {
+//   --bg-color: #0d0d0d;               /* Jet black */
+//   --card-bg: #1a1a1a;
+//   --card-border: #2a2a2a;
+//   --primary-color: #A4B367;          /* Lightened olive tone */
+//   --text-color: #f0f0f0;
+//   --text-secondary: #bfbfbf;
+//   --button-bg: #8A9A5B;
+//   --button-hover: #6e7c3f;
+//   --button-disable: #4d4d4d;
+//   --input-bg: #111111;
+//   --input-border: #333;
+//   --input-hover: #A4B367;
+//   --success-color: #66BB6A;
+//   --info-color: #29B6F6;
+//   --warning-color: #FFA000;
+//   --purple-color: #A4B367;
+//   --row-hover: rgba(138, 154, 91, 0.08);
+//   --card-shadow: rgba(164, 179, 103, 0.1) 0px 2px 8px;
+// }
 
 /* Form Field Styling */
 mat-form-field {
