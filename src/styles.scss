@@ -1,4 +1,7 @@
-html, body {
+@import "ngx-toastr/toastr";
+
+html,
+body {
   height: 100%;
   width: 100%;
   margin: 0;
@@ -15,6 +18,9 @@ app-root {
   width: 100%;
 }
 
+.toast-top-center {
+  top: 30px;
+}
 
 :root {
   --bg-color: #f8f9fa; /* Soft, light background */
@@ -29,10 +35,10 @@ app-root {
   --input-bg: #ffffff; /* White for input backgrounds */
   --input-border: #dfe6e9; /* Light gray for input borders */
   --input-hover: #74b9ff; /* Light blue for input hover */
-  --success-color: #4CAF50;
-  --info-color: #2196F3;
-  --warning-color: #FF9800;
-  --purple-color: #9C27B0;
+  --success-color: #4caf50;
+  --info-color: #2196f3;
+  --warning-color: #ff9800;
+  --purple-color: #9c27b0;
   --row-hover: rgba(255, 255, 255, 0.05);
   --card-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; /* Soft shadow for cards */
 }

@@ -3,6 +3,7 @@ import { ReportService } from '../../services/report.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TrackingService } from '../../services/tracking.service';
 import { BehaviorSubject } from 'rxjs';
+import { ToastService } from '../../services/toaster/toast.service';
 
 @Component({
   selector: 'app-report',
@@ -19,7 +20,8 @@ export class ReportComponent implements OnInit {
 
   constructor(
     private reportService: ReportService,
-    private trackingService: TrackingService
+    private trackingService: TrackingService,
+    public toastr: ToastService
   ) { }
 
   reportForm = new FormGroup({
@@ -43,16 +45,21 @@ export class ReportComponent implements OnInit {
         this.loading = false;
       },
       (error) => {
-        console.error('Error generating report:', error);
         this.loading = false;
+        this.toastr.showError(error.error);
       }
     );
   }
 
   fetchHistory() {
-    this.reportService.getReportHistory().subscribe((data) => {
-      this.history = data;
-    });
+    this.reportService.getReportHistory().subscribe(
+      (data) => {
+        this.history = data;
+        this.loading = false;
+      }, (error) => {
+        this.loading = false;
+        this.toastr.showError(error.error);
+      });
   }
 
   viewReport(item: any) {

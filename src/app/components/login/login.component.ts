@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastService } from '../../services/toaster/toast.service';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,8 @@ export class LoginComponent {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    public toastr: ToastService
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -33,11 +35,13 @@ export class LoginComponent {
       this.authService.login(this.loginForm.value).subscribe(
         (response) => {
           this.loading = false;
+          this.toastr.showSuccess('User logged in successfully.');
           localStorage.setItem('token', response.token);
           this.router.navigate(['/dashboard']);
         },
         (error) => {
           this.loading = false;
+          this.toastr.showError(error.error);
         }
       );
     }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { ToastService } from '../../services/toaster/toast.service';
 
 @Component({
   selector: 'app-register',
@@ -19,17 +20,22 @@ export class RegisterComponent {
     confirmPassword: new FormControl('', Validators.required),
   });
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router,
+    public toastr: ToastService) { }
 
   onRegister() {
     if (this.registerForm.valid) {
       this.loading = true;
       this.authService.register(this.registerForm.value).subscribe(
-        (response) => {
+        () => {
           this.loading = false;
+          this.toastr.showSuccess('User registered successfully.');
           this.router.navigate(['/login'])
         },
-        (error) => console.error('Registration failed', error)
+        (error) => {
+          this.loading = false;
+          this.toastr.showError(error.error);
+        }
       );
     } else {
       this.registerForm.markAllAsTouched();

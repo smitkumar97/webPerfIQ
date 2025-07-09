@@ -29,6 +29,7 @@ import { RecommendationsComponent } from './shared/recommendations/recommendatio
 import { HighlightDirective } from './shared/directives/highlight.directive';
 import { ButtonComponent } from './shared/button/button.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ToastrModule } from 'ngx-toastr'
 
 @NgModule({
   declarations: [
@@ -63,9 +64,10 @@ import { AppRoutingModule } from './app-routing.module';
     ReactiveFormsModule,
     MatProgressSpinnerModule,
     AppRoutingModule,
+    ToastrModule.forRoot()
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true, }
   ],
   bootstrap: [AppComponent]
 })
