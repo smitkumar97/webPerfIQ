@@ -78,7 +78,7 @@ export class TrackingService implements OnDestroy {
   }
 
   sendEmail(data: any): Observable<any> {
-    return this.http.post(`${environment.apiBaseUrl}/visit/send`, { data });
+    return this.http.post(`${environment.apiBaseUrl}/visit/send`, data);
   }
 
   ngOnDestroy() {
