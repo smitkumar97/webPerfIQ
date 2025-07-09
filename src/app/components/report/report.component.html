@@ -2,10 +2,19 @@
   <mat-card class="analyze-card">
     <mat-card-content>
       <form [formGroup]="reportForm">
-        <app-input label="Enter Website URL" placeholder="https://example.com" formControlName="website"
-          [required]="true" errorMessage="Please provide the link"></app-input>
+        <app-input
+          label="Enter Website URL"
+          placeholder="https://example.com"
+          formControlName="website"
+          [required]="true"
+          errorMessage="Please provide the link"
+        ></app-input>
       </form>
-      <button class="analyze-btn" (click)="generateReport()" [disabled]="loading">
+      <button
+        class="analyze-btn"
+        (click)="generateReport()"
+        [disabled]="loading"
+      >
         Analyze
       </button>
     </mat-card-content>
@@ -36,7 +45,6 @@
       </div>
 
       <mat-accordion class="recommendations-accordion">
-
         <!-- PERFORMANCE -->
         <mat-expansion-panel [expanded]="true">
           <mat-expansion-panel-header>
@@ -45,7 +53,9 @@
             </mat-panel-title>
           </mat-expansion-panel-header>
           <div class="recommendation-content">
-            <app-recommendations [reportData]="reportData?.recommendations?.Performance"></app-recommendations>
+            <app-recommendations
+              [reportData]="reportData?.recommendations?.Performance"
+            ></app-recommendations>
           </div>
         </mat-expansion-panel>
 
@@ -57,7 +67,9 @@
             </mat-panel-title>
           </mat-expansion-panel-header>
           <div class="recommendation-content">
-            <app-recommendations [reportData]="reportData?.recommendations?.Accessibility"></app-recommendations>
+            <app-recommendations
+              [reportData]="reportData?.recommendations?.Accessibility"
+            ></app-recommendations>
           </div>
         </mat-expansion-panel>
 
@@ -69,7 +81,9 @@
             </mat-panel-title>
           </mat-expansion-panel-header>
           <div class="recommendation-content">
-            <app-recommendations [reportData]="reportData?.recommendations?.BestPractices"></app-recommendations>
+            <app-recommendations
+              [reportData]="reportData?.recommendations?.BestPractices"
+            ></app-recommendations>
           </div>
         </mat-expansion-panel>
 
@@ -81,12 +95,12 @@
             </mat-panel-title>
           </mat-expansion-panel-header>
           <div class="recommendation-content">
-            <app-recommendations [reportData]="reportData?.recommendations?.SEO"></app-recommendations>
+            <app-recommendations
+              [reportData]="reportData?.recommendations?.SEO"
+            ></app-recommendations>
           </div>
         </mat-expansion-panel>
-
       </mat-accordion>
-
     </mat-card-content>
   </mat-card>
 
@@ -96,7 +110,12 @@
     </mat-card-title>
     <mat-card-content>
       <div class="table-wrapper">
-        <table *ngIf="history && history.length" class="table table-container" cellspacing="0" cellpadding="0">
+        <table
+          *ngIf="history && history.length"
+          class="table table-container"
+          cellspacing="0"
+          cellpadding="0"
+        >
           <thead class="table-head">
             <tr class="header-row">
               <th>No</th>
@@ -111,7 +130,7 @@
               <td>{{ i + 1 }}</td>
               <td>{{ item.url }}</td>
               <td>{{ item.performanceScore }}</td>
-              <td>{{ item.createdAt | date: 'short' }}</td>
+              <td>{{ item.createdAt | date : "short" }}</td>
               <td>
                 <button mat-icon-button (click)="viewReport(item)">
                   <mat-icon>visibility</mat-icon>

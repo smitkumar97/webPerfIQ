@@ -11,7 +11,7 @@ export class ReportService {
   subject = new Subject<number>();
   behaviorSubject = new BehaviorSubject<number>(0);
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   generateReport(url: string): Observable<any> {
     return this.http.post(`${this.apiUrl}/generate`, { url });

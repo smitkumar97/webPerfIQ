@@ -36,7 +36,9 @@ export class LoginComponent {
           localStorage.setItem('token', response.token);
           this.router.navigate(['/dashboard']);
         },
-        (error) => console.error('Login failed', error)
+        (error) => {
+          this.loading = false;
+        }
       );
     }
   }

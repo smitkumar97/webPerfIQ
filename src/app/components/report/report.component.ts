@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ReportService } from '../../services/report.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { TrackingService } from '../../services/tracking.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-report',
@@ -13,9 +15,11 @@ export class ReportComponent implements OnInit {
   reportData: any = null;
   loading: boolean = false;
   history: any[] = [];
+  activeUsers$ = new BehaviorSubject<number>(0);
 
   constructor(
     private reportService: ReportService,
+    private trackingService: TrackingService
   ) { }
 
   reportForm = new FormGroup({
@@ -24,6 +28,7 @@ export class ReportComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchHistory();
+    this.activeUsers$ = this.trackingService.activeUsers$;
   }
 
   generateReport() {
