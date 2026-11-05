@@ -39,7 +39,7 @@ export class TrackingService implements OnDestroy {
   }
 
   private initializeSocket() {
-    this.socket = io(environment.socketUrl, {
+    this.socket = io(environment.apiBaseUrl, {
       autoConnect: false
     });
 
